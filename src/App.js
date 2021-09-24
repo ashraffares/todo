@@ -1,21 +1,12 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import fetchTodoData from './Redux/Actions/TodoActions';
+/* eslint-disable no-console */
+import React from 'react';
+import Todo from './container/todoList/todo';
 import './App.css';
 
 function App() {
-  const dispatch = useDispatch();
-  const state = useSelector((state) => state);
-
-  useEffect(() => {
-    dispatch(fetchTodoData);
-  }, []);
-
-  // eslint-disable-next-line no-console
-  console.log(state);
   return (
     <div className="App">
-      working
+      <Todo />
     </div>
   );
 }
