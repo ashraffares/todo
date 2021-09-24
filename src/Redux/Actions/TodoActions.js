@@ -1,26 +1,8 @@
+import axios from 'axios';
 import ActionTypes from './ActionTypes';
-import INITIAL_STATE from '../Store/InitialState';
 
-const TodoReducer = (state = INITIAL_STATE, action) => {
-  switch (action.type) {
-    case ActionTypes.FETCH_TODO_LOADING:
-      return {
-        ...state,
-        loading: true,
-      };
-    case ActionTypes.FETCH_TODO_SUCCESS:
-      return {
-        ...state,
-        items: action.payload,
-        loading: true,
-      };
-    case ActionTypes.FETCH_TODO_FAILURE:
-      return {
-        ...state,
-        error: action.error,
-      };
-    default: return state;
-  }
+const fetchTodoData = () => async (dispatch) => {
+  dispatch({ type: ActionTypes.FETCH_TODO_LOADING });
 };
 
-export default TodoReducer;
+export default fetchTodoData;
