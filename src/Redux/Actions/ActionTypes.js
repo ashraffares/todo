@@ -1,0 +1,7 @@
+const ActionTypes = {
+  FETCH_TODO_LOADING: 'FETCH_TODO_LOADING',
+  FETCH_TODO_SUCCESS: 'FETCH_TODO_SUCCESS',
+  FETCH_TODO_FAILURE: 'FETCH_TODO_FAILURE',
+};
+
+export default ActionTypes;
