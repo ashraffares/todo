@@ -1,4 +1,4 @@
-import ActionTypes from './ActionTypes';
+import ActionTypes from '../Actions/ActionTypes';
 import INITIAL_STATE from '../Store/InitialState';
 
 const TodoReducer = (state = INITIAL_STATE, action) => {
