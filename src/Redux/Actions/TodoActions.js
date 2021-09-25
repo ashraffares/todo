@@ -1,7 +1,7 @@
 import axios from 'axios';
 import ActionTypes from './ActionTypes';
 
-const fetchTodoData = () => async (dispatch) => {
+export const fetchTodoData = () => async (dispatch) => {
   dispatch({ type: ActionTypes.FETCH_TODO_LOADING });
 
   try {
@@ -18,4 +18,21 @@ const fetchTodoData = () => async (dispatch) => {
   }
 };
 
-export default fetchTodoData;
+export const postTodo = () => async (dispatch) => {
+  dispatch({ type: ActionTypes.POST_TODO_LOADING });
+
+  try {
+    const response = await axios({
+      method: 'post',
+      url: 'https://boiling-shelf-13431.herokuapp.com/api/v1/todos',
+      headers: {
+        'Content-Type': 'application/json',
+        token: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.DiPWrOKsx3sPeVClrm_j07XNdSYHgBa3Qctosdxax3w',
+      },
+      data: { title: 'testpost', created_by: 'testpost' },
+    });
+    dispatch({ type: ActionTypes.POST_TODO_SUCCESS, payload: response.data });
+  } catch (error) {
+    dispatch({ type: ActionTypes.POST_TODO_FAILURE, error });
+  }
+};
