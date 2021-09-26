@@ -1,3 +1,15 @@
-.form {
-  margin: 0;
+.wrapper {
+  width: 80vw;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.wrapper button {
+  border: none;
+  background-color: #ff6026;
+  color: #fff;
+  font-weight: bold;
+  padding: 5px 10px;
 }
