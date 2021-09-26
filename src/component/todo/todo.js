@@ -7,9 +7,18 @@ const Todo = ({ todo }) => {
   const { id, title, created_by } = todo;
   return (
     <div className={styles.card}>
-      <h3>{ id }</h3>
-      <h3>{ title }</h3>
-      <h3>{ created_by }</h3>
+      <div className={styles.info}>
+        <span>{ id }</span>
+        <input value={title} disabled />
+        <input value={created_by} disabled />
+      </div>
+      <div className={styles.buttons}>
+        <button type="button">View</button>
+        <button type="button">Edit</button>
+        <button type="button">Delete</button>
+        <button type="button">Save</button>
+      </div>
+
     </div>
   );
 };
