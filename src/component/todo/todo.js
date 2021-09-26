@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable camelcase */
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './todo.module.css';
 
 const Todo = ({ todo }) => {
@@ -12,6 +12,14 @@ const Todo = ({ todo }) => {
       <h3>{ created_by }</h3>
     </div>
   );
+};
+
+Todo.propTypes = {
+  todo: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    created_by: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Todo;
