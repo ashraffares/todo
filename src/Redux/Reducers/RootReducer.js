@@ -4,6 +4,7 @@ import PostTodoReducer from './PostTodoReducer';
 import DeleteTodoReducer from './DeleteTodoReducer';
 import UpdateTodoReducer from './UpdateReducer';
 import GetTodoReducer from './GetTodoReducer';
+import GetItemsReducer from './GetItemsReducer';
 
 const RootReducer = combineReducers({
   TodoReducer,
@@ -11,6 +12,7 @@ const RootReducer = combineReducers({
   DeleteTodoReducer,
   UpdateTodoReducer,
   GetTodoReducer,
+  GetItemsReducer,
 });
 
 export default RootReducer;

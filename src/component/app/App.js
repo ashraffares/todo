@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Todos from '../../container/todoList/todos';
 import Navbar from '../navbar';
 import Form from '../form';
+import Items from '../../container/itemsList/items';
 import './App.css';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Form />
       <Switch>
         <Route path="/" exact component={Todos} />
+        <Route path="/todo/:id/items" exact component={Items} />
         <Redirect to="/" />
       </Switch>
     </div>

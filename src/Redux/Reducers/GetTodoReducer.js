@@ -17,12 +17,13 @@ const GetTodoReducer = (state = initialState, action) => {
       return {
         ...state,
         item: action.payload,
-        loading: true,
+        loading: false,
       };
     case ActionTypes.GET_TODO_FAILURE:
       return {
         ...state,
         error: action.error,
+        loading: false,
       };
     default: return state;
   }

@@ -18,6 +18,7 @@ const TodoReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         error: action.error,
+        loading: false,
       };
     default: return state;
   }

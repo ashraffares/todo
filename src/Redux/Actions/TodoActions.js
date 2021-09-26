@@ -91,3 +91,21 @@ export const GetTodo = (id) => async (dispatch) => {
     dispatch({ type: ActionTypes.GET_TODO_FAILURE, error });
   }
 };
+
+export const GetItems = (id) => async (dispatch) => {
+  dispatch({ type: ActionTypes.GET_ITEMS_LOADING });
+
+  try {
+    const response = await axios({
+      method: 'get',
+      url: `https://boiling-shelf-13431.herokuapp.com/api/v1/todos/${id}/items`,
+      headers: {
+        'Content-Type': 'application/json',
+        token: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.DiPWrOKsx3sPeVClrm_j07XNdSYHgBa3Qctosdxax3w',
+      },
+    });
+    dispatch({ type: ActionTypes.GET_ITEMS_SUCCESS, payload: response.data });
+  } catch (error) {
+    dispatch({ type: ActionTypes.GET_ITEMS_FAILURE, error });
+  }
+};
