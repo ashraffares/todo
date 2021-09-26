@@ -10,7 +10,7 @@ const Todos = () => {
 
   useEffect(() => {
     dispatch(fetchTodoData());
-  }, []);
+  }, [state.DeleteTodoReducer, state.UpdateTodoReducer]);
 
   console.log(state);
 
