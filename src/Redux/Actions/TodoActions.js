@@ -18,7 +18,7 @@ export const fetchTodoData = () => async (dispatch) => {
   }
 };
 
-export const postTodo = () => async (dispatch) => {
+export const postTodo = (obj) => async (dispatch) => {
   dispatch({ type: ActionTypes.POST_TODO_LOADING });
 
   try {
@@ -29,10 +29,47 @@ export const postTodo = () => async (dispatch) => {
         'Content-Type': 'application/json',
         token: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.DiPWrOKsx3sPeVClrm_j07XNdSYHgBa3Qctosdxax3w',
       },
-      data: { title: 'testpost', created_by: 'testpost' },
+      data: obj,
     });
     dispatch({ type: ActionTypes.POST_TODO_SUCCESS, payload: response.data });
   } catch (error) {
     dispatch({ type: ActionTypes.POST_TODO_FAILURE, error });
+  }
+};
+
+export const DeleteTodo = (id) => async (dispatch) => {
+  dispatch({ type: ActionTypes.DELETE_TODO_LOADING });
+
+  try {
+    const response = await axios({
+      method: 'delete',
+      url: `https://boiling-shelf-13431.herokuapp.com/api/v1/todos/${id}`,
+      headers: {
+        'Content-Type': 'application/json',
+        token: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.DiPWrOKsx3sPeVClrm_j07XNdSYHgBa3Qctosdxax3w',
+      },
+    });
+    dispatch({ type: ActionTypes.DELETE_TODO_SUCCESS, payload: response.data });
+  } catch (error) {
+    dispatch({ type: ActionTypes.DELETE_TODO_FAILURE, error });
+  }
+};
+
+export const UpdateTodo = (id, obj) => async (dispatch) => {
+  dispatch({ type: ActionTypes.UPDATE_TODO_LOADING });
+
+  try {
+    const response = await axios({
+      method: 'delete',
+      url: `https://boiling-shelf-13431.herokuapp.com/api/v1/todos/${id}`,
+      headers: {
+        'Content-Type': 'application/json',
+        token: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.DiPWrOKsx3sPeVClrm_j07XNdSYHgBa3Qctosdxax3w',
+      },
+      data: obj,
+    });
+    dispatch({ type: ActionTypes.UPDATE_TODO_SUCCESS, payload: response.data });
+  } catch (error) {
+    dispatch({ type: ActionTypes.UPDATE_TODO_FAILURE, error });
   }
 };
