@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import Todo from '../../container/todoList/todo';
+import Todos from '../../container/todoList/todos';
 import Navbar from '../navbar';
 import './App.css';
 
@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Switch>
-        <Route path="/" exact component={Todo} />
+        <Route path="/" exact component={Todos} />
         <Redirect to="/" />
       </Switch>
     </div>
