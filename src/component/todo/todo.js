@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable no-console */
 /* eslint-disable camelcase */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -16,7 +14,6 @@ const Todo = ({ todo }) => {
   const [CreatedBy, setcreatedBy] = useState(created_by);
   const EditItems = () => {
     const inputs = document.getElementsByClassName(id);
-    console.log(inputs[0], inputs[1]);
     inputs[0].disabled = false;
     inputs[1].disabled = false;
   };

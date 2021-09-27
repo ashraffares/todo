@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Todos from '../../container/todoList/todos';

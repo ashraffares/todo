@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable max-len */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -46,7 +44,11 @@ const ItemForm = () => {
         <div className={styles.w100}>
           <label htmlFor="Proirity">
             proirity:
-            <select value={proirity} onChange={(e) => setProirity(e.target.value)} className={styles.w100}>
+            <select
+              value={proirity}
+              onChange={(e) => setProirity(e.target.value)}
+              className={styles.w100}
+            >
               <option disabled defaultValue hidden>Proirity</option>
               <option value="High">High</option>
               <option value="Medium">Medium</option>
