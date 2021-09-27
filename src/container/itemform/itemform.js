@@ -3,43 +3,49 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { GetItems } from '../../Redux/Actions/TodoActions';
+import { PostItems } from '../../Redux/Actions/TodoActions';
 import styles from './itemform.module.css';
 
 const ItemForm = () => {
   const res = useParams();
   const dispatch = useDispatch();
-  const [Name, SetName] = useState();
-  const [Description, SetDescription] = useState();
-  const [Proirity, setProirity] = useState();
-  const [Completed, setCompleted] = useState(false);
+  const [name, SetName] = useState('');
+  const [description, SetDescription] = useState('');
+  const [proirity, setProirity] = useState('');
+  const [completed, setCompleted] = useState(false);
+  const obj = {
+    todo_id: res.id,
+    name,
+    description,
+    proirity,
+  };
   return (
     <div className={styles.wrapper}>
-      <form className={styles.form} onSubmit={() => dispatch(GetItems(res.id))}>
+      <form className={styles.form} onSubmit={() => dispatch(PostItems(res.id, obj))}>
         <div className={styles.w100}>
           <label htmlFor="completed">
             Completed:
-            <input type="checkbox" id="completed" value={Completed} onChange={(e) => setCompleted(e.target.value)} />
+            <input type="checkbox" id="completed" value={completed} onChange={(e) => setCompleted(e.target.value)} />
           </label>
         </div>
         <div className={styles.w100}>
           <label htmlFor="Name">
             Name:
-            <input placeholder="Name" value={Name} onChange={(e) => SetName(e.target.value)} id="name" className={styles.w100} />
+            <input placeholder="Name" value={name} onChange={(e) => SetName(e.target.value)} id="name" className={styles.w100} />
           </label>
 
         </div>
         <div className={styles.w100}>
           <label htmlFor="Description">
             Description:
-            <input placeholder="Description" value={Description} onChange={(e) => SetDescription(e.target.value)} id="Description" className={styles.w100} />
+            <input placeholder="Description" value={description} onChange={(e) => SetDescription(e.target.value)} id="Description" className={styles.w100} />
           </label>
         </div>
         <div className={styles.w100}>
           <label htmlFor="Proirity">
             proirity:
-            <select value={Proirity} onChange={(e) => setProirity(e.target.value)} className={styles.w100}>
-              <option disabled selected hidden>Proirity</option>
+            <select value={proirity} onChange={(e) => setProirity(e.target.value)} className={styles.w100}>
+              <option disabled defaultValue hidden>Proirity</option>
               <option value="High">High</option>
               <option value="Medium">Medium</option>
               <option value="Low">Low</option>

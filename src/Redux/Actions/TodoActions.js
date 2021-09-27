@@ -109,3 +109,22 @@ export const GetItems = (id) => async (dispatch) => {
     dispatch({ type: ActionTypes.GET_ITEMS_FAILURE, error });
   }
 };
+
+export const PostItems = (id, obj) => async (dispatch) => {
+  dispatch({ type: ActionTypes.POST_ITEMS_LOADING });
+
+  try {
+    const response = await axios({
+      method: 'post',
+      url: `https://vast-eyrie-23535.herokuapp.com/api/v1/todos/${id}/items`,
+      headers: {
+        'Content-Type': 'application/json',
+        token: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.DiPWrOKsx3sPeVClrm_j07XNdSYHgBa3Qctosdxax3w',
+      },
+      data: obj,
+    });
+    dispatch({ type: ActionTypes.POST_ITEMS_SUCCESS, payload: response.data });
+  } catch (error) {
+    dispatch({ type: ActionTypes.POST_ITEMS_FAILURE, error });
+  }
+};

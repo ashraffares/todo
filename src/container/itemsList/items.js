@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import Item from '../../component/item/item';
 import { GetItems } from '../../Redux/Actions/TodoActions';
 import ItemForm from '../itemform';
 
@@ -22,7 +23,7 @@ const Todos = () => {
       return 'Loading data .............';
     }
     if (ItemsLen > 0) {
-      return items.map((el) => console.log(el));
+      return items.map((el) => <Item key={el.id} item={el} />);
     }
 
     return error;
