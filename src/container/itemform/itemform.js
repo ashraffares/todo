@@ -1,15 +1,21 @@
+/* eslint-disable no-console */
 /* eslint-disable max-len */
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { GetItems } from '../../Redux/Actions/TodoActions';
 import styles from './itemform.module.css';
 
 const ItemForm = () => {
+  const res = useParams();
+  const dispatch = useDispatch();
   const [Name, SetName] = useState();
   const [Description, SetDescription] = useState();
   const [Proirity, setProirity] = useState();
   const [Completed, setCompleted] = useState(false);
   return (
     <div className={styles.wrapper}>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={() => dispatch(GetItems(res.id))}>
         <div className={styles.w100}>
           <label htmlFor="completed">
             Completed:
