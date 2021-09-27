@@ -59,7 +59,7 @@ const Item = ({ item }) => {
   );
 };
 
-Item.propType = {
+Item.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
