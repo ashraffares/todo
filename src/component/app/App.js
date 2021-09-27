@@ -3,6 +3,8 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Todos from '../../container/todoList/todos';
 import Navbar from '../navbar';
 import Items from '../../container/itemsList/items';
+import SignIn from '../signin';
+import SignUp from '../signup';
 import './App.css';
 
 function App() {
@@ -12,6 +14,8 @@ function App() {
       <Switch>
         <Route path="/" exact component={Todos} />
         <Route path="/todo/:id/items" exact component={Items} />
+        <Route path="/sign_in" exact component={SignIn} />
+        <Route path="/sign_up" exact component={SignUp} />
         <Redirect to="/" />
       </Switch>
     </div>
