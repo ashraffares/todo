@@ -1,11 +1,15 @@
+/* eslint-disable no-console */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import Item from '../../component/item';
 import { GetItems } from '../../Redux/Actions/TodoActions';
 import ItemForm from '../itemform';
+import styles from './items.module.css';
 
 const Todos = () => {
+  const history = useHistory();
+  console.log(history);
   const res = useParams();
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
@@ -30,7 +34,8 @@ const Todos = () => {
   };
 
   return (
-    <main>
+    <main className={styles.main}>
+      <button className={styles.btn} type="button" onClick={() => history.goBack()}>GoBack</button>
       <ItemForm />
       {renderData()}
     </main>
