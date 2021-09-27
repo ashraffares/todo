@@ -12,7 +12,6 @@ const ItemForm = () => {
   const [name, SetName] = useState('');
   const [description, SetDescription] = useState('');
   const [proirity, setProirity] = useState('');
-  const [completed, setCompleted] = useState(false);
   const obj = {
     todo_id: res.id,
     name,
@@ -22,12 +21,6 @@ const ItemForm = () => {
   return (
     <div className={styles.wrapper}>
       <form className={styles.form} onSubmit={() => dispatch(PostItems(res.id, obj))}>
-        <div className={styles.w100}>
-          <label htmlFor="completed">
-            Completed:
-            <input type="checkbox" id="completed" value={completed} onChange={(e) => setCompleted(e.target.value)} />
-          </label>
-        </div>
         <div className={styles.w100}>
           <label htmlFor="Name">
             Name:

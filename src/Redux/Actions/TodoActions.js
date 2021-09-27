@@ -128,3 +128,40 @@ export const PostItems = (id, obj) => async (dispatch) => {
     dispatch({ type: ActionTypes.POST_ITEMS_FAILURE, error });
   }
 };
+
+export const UpdateItem = (todoId, itemId, obj) => async (dispatch) => {
+  dispatch({ type: ActionTypes.UPDATE_ITEMS_LOADING });
+
+  try {
+    const response = await axios({
+      method: 'put',
+      url: `https://vast-eyrie-23535.herokuapp.com/api/v1/todos/${todoId}/items/${itemId}`,
+      headers: {
+        'Content-Type': 'application/json',
+        token: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.DiPWrOKsx3sPeVClrm_j07XNdSYHgBa3Qctosdxax3w',
+      },
+      data: obj,
+    });
+    dispatch({ type: ActionTypes.UPDATE_ITEMS_SUCCESS, payload: response.data });
+  } catch (error) {
+    dispatch({ type: ActionTypes.UPDATE_ITEMS_FAILURE, error });
+  }
+};
+
+export const DeleteItem = (todoId, itemId) => async (dispatch) => {
+  dispatch({ type: ActionTypes.DELETE_ITEMS_LOADING });
+
+  try {
+    const response = await axios({
+      method: 'delete',
+      url: `https://vast-eyrie-23535.herokuapp.com/api/v1/todos/${todoId}/items/${itemId}`,
+      headers: {
+        'Content-Type': 'application/json',
+        token: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.DiPWrOKsx3sPeVClrm_j07XNdSYHgBa3Qctosdxax3w',
+      },
+    });
+    dispatch({ type: ActionTypes.DELETE_ITEMS_SUCCESS, payload: response.data });
+  } catch (error) {
+    dispatch({ type: ActionTypes.DELETE_ITEMS_FAILURE, error });
+  }
+};
