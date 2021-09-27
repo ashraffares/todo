@@ -7,11 +7,11 @@ import Form from '../form';
 const Todos = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
-  const { DeleteTodoReducer, UpdateTodoReducer } = state;
+  const { DeleteTodoReducer, UpdateTodoReducer, PostTodoReducer } = state;
 
   useEffect(() => {
     dispatch(fetchTodoData());
-  }, [DeleteTodoReducer, UpdateTodoReducer]);
+  }, [DeleteTodoReducer, UpdateTodoReducer, PostTodoReducer]);
 
   const renderData = () => {
     const { TodoReducer } = state;

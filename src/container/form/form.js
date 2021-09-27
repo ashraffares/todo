@@ -15,7 +15,15 @@ const Form = () => {
 
   return (
     <div className={styles.wrapper}>
-      <form onSubmit={() => dispatch(postTodo(obj))} className={styles.form}>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          dispatch(postTodo(obj));
+          SetTitle('');
+          SetcreatedBy('');
+        }}
+        className={styles.form}
+      >
         <input type="text" placeholder="Todo Title" value={Title} onChange={(e) => SetTitle(e.target.value)} />
         <input type="text" placeholder="Creater by" value={createdBy} onChange={(e) => SetcreatedBy(e.target.value)} />
         <button type="submit">Submit</button>
