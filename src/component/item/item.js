@@ -33,10 +33,17 @@ const Item = ({ item }) => {
     inputs[3].disabled = false;
   };
 
+  const True = () => {
+    if (Completed) {
+      return true;
+    }
+    return '';
+  };
+
   return (
     <div className={styles.card}>
       <span>{id}</span>
-      <input className={id} type="checkbox" disabled value={Completed} onChange={() => setCompleted(!Completed)} />
+      <input className={id} type="checkbox" checked={True()} disabled value={Completed} onChange={() => setCompleted(!Completed)} />
       <input className={id} type="text" value={Name} disabled onChange={(e) => setName(e.target.value)} />
       <input className={id} type="text" value={Description} disabled onChange={(e) => setDescription(e.target.value)} />
       <select className={id} type="text" value={selected} disabled onChange={(e) => setSelected(e.target.value)}>

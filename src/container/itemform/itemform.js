@@ -20,7 +20,16 @@ const ItemForm = () => {
   };
   return (
     <div className={styles.wrapper}>
-      <form className={styles.form} onSubmit={() => dispatch(PostItems(res.id, obj))}>
+      <form
+        className={styles.form}
+        onSubmit={(e) => {
+          e.preventDefault();
+          dispatch(PostItems(res.id, obj));
+          SetName('');
+          SetDescription('');
+          setProirity('');
+        }}
+      >
         <div className={styles.w100}>
           <label htmlFor="Name">
             Name:

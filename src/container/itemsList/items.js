@@ -10,11 +10,11 @@ const Todos = () => {
   const res = useParams();
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
-  const { DeleteItemsReducer, UpdateItemsReducer } = state;
+  const { DeleteItemsReducer, UpdateItemsReducer, PostItemsReducer } = state;
 
   useEffect(() => {
     dispatch(GetItems(res.id));
-  }, [DeleteItemsReducer, UpdateItemsReducer]);
+  }, [DeleteItemsReducer, UpdateItemsReducer, PostItemsReducer]);
 
   const renderData = () => {
     const { GetItemsReducer } = state;
