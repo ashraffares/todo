@@ -9,6 +9,7 @@ const ItemForm = () => {
 
   return (
     <form>
+      <input type="checkbox" />
       <input placeholder="Name" value={Name} onClick={(e) => SetName(e.target.value)} />
       <input placeholder="Description" value={Description} onClick={(e) => SetDescription(e.target.value)} />
       <input placeholder="Proirity" value={Proirity} onClick={(e) => setProirity(e.target.value)} />
