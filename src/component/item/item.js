@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-console */
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -57,6 +57,16 @@ const Item = ({ item }) => {
       <button type="button" onClick={() => dispatch(DeleteItem(todoId, id))}>Delete</button>
     </div>
   );
+};
+
+Item.propType = {
+  item: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    proirity: PropTypes.string.isRequired,
+    completed: PropTypes.bool.isRequired,
+  }).isRequired,
 };
 
 export default Item;
