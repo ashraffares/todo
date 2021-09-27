@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { GetItems } from '../../Redux/Actions/TodoActions';
+import ItemForm from '../itemform';
 
 const Todos = () => {
   const res = useParams();
@@ -12,8 +13,6 @@ const Todos = () => {
   useEffect(() => {
     dispatch(GetItems(res.id));
   }, []);
-
-  console.log(res.id);
 
   const renderData = () => {
     const { GetItemsReducer } = state;
@@ -30,7 +29,10 @@ const Todos = () => {
   };
 
   return (
-    renderData()
+    <main>
+      <ItemForm />
+      {renderData()}
+    </main>
   );
 };
 

@@ -3,16 +3,16 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTodoData } from '../../Redux/Actions/TodoActions';
 import Todo from '../../component/todo';
+import Form from '../form';
 
 const Todos = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
+  const { DeleteTodoReducer, UpdateTodoReducer } = state;
 
   useEffect(() => {
     dispatch(fetchTodoData());
-  }, [state.DeleteTodoReducer, state.UpdateTodoReducer]);
-
-  console.log(state);
+  }, [DeleteTodoReducer, UpdateTodoReducer]);
 
   const renderData = () => {
     const { TodoReducer } = state;
@@ -29,7 +29,10 @@ const Todos = () => {
   };
 
   return (
-    renderData()
+    <main>
+      <Form />
+      { renderData() }
+    </main>
   );
 };
 
