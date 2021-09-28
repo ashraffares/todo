@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './signup.module.css';
 
 const Signup = () => {
@@ -25,6 +26,9 @@ const Signup = () => {
           <button className={styles.btn} type="submit">Submit</button>
         </div>
       </form>
+      <div className={styles.linkcon}>
+        <Link className={styles.link} to="/sign_in">Sign Up</Link>
+      </div>
     </div>
   );
 };
