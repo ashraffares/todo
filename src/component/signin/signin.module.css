@@ -1,0 +1,41 @@
+.signIn {
+  background-image: url("./bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.form {
+  position: relative;
+  top: 20%;
+  text-align: center;
+  width: 40%;
+  margin: auto;
+}
+
+.input {
+  width: 98%;
+  padding: 10px 0;
+  padding-left: 5px;
+  margin: 12px 0;
+  border-radius: 20px;
+  border: 1px solid #aaa;
+  outline: none;
+}
+
+.orange {
+  border: 2px solid #ff6026;
+}
+
+.btn {
+  padding: 10px 35px;
+  background-color: #ff6026;
+  color: #fff;
+  font-weight: bolder;
+  border: none;
+  border-radius: 20px;
+}

@@ -1,16 +1,14 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Todos from '../../container/todoList/todos';
-import Navbar from '../navbar';
 import Items from '../../container/itemsList/items';
 import SignIn from '../signin';
 import SignUp from '../signup';
-import './App.css';
+import styles from './App.module.css';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
+    <div className={styles.App}>
       <Switch>
         <Route path="/" exact component={Todos} />
         <Route path="/todo/:id/items" exact component={Items} />

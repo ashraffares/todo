@@ -1,26 +1,28 @@
 import React, { useState } from 'react';
+import styles from './signin.module.css';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   return (
-    <form>
-      <div>
-        <label htmlFor="email">
-          Email:
-          <input type="text" placeholder="Email" value={email} id="email" onChange={(e) => setEmail(e.target.value)} />
-        </label>
-      </div>
+    <div className={styles.signIn}>
+      <form className={styles.form}>
+        <div>
+          <h1>Sign in</h1>
+          <p>Hello there! Sign in and start managing you Todos</p>
+        </div>
+        <div>
+          <input className={styles.input} type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        </div>
 
-      <div>
-        <label htmlFor="password">
-          Password:
-          <input type="text" placeholder="Password" value={password} id="password" onChange={(e) => setPassword(e.target.value)} />
-        </label>
-      </div>
+        <div>
+          <input className={`${styles.input} ${styles.orange}`} type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        </div>
+        <button className={styles.btn} type="submit">Submit</button>
 
-      <button type="submit">Submit</button>
-    </form>
+      </form>
+    </div>
   );
 };
 
