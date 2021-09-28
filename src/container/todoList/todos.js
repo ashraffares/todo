@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchTodoData } from '../../Redux/Actions/TodoActions';
 import Todo from '../../component/todo';
 import Form from '../form';
+import Navbar from '../../component/navbar';
 
 const Todos = () => {
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ const Todos = () => {
 
   return (
     <main>
+      <Navbar />
       <Form />
       { renderData() }
     </main>

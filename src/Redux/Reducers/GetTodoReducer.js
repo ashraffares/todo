@@ -16,7 +16,7 @@ const GetTodoReducer = (state = initialState, action) => {
     case ActionTypes.GET_TODO_SUCCESS:
       return {
         ...state,
-        item: [...state.items, ...action.payload],
+        item: [...action.payload],
         loading: false,
       };
     case ActionTypes.GET_TODO_FAILURE:

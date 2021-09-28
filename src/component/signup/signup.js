@@ -27,7 +27,7 @@ const Signup = () => {
         </div>
       </form>
       <div className={styles.linkcon}>
-        <Link className={styles.link} to="/sign_in">Sign Up</Link>
+        <Link className={styles.link} to="/sign_in">Sign In</Link>
       </div>
     </div>
   );

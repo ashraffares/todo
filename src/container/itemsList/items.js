@@ -5,6 +5,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import Item from '../../component/item';
 import { GetItems } from '../../Redux/Actions/TodoActions';
 import ItemForm from '../itemform';
+import Navbar from '../../component/navbar';
 import styles from './items.module.css';
 
 const Todos = () => {
@@ -35,6 +36,7 @@ const Todos = () => {
 
   return (
     <main className={styles.main}>
+      <Navbar />
       <button className={styles.btn} type="button" onClick={() => history.goBack()}>GoBack</button>
       <ItemForm />
       {renderData()}
