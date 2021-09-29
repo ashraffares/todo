@@ -16,16 +16,25 @@ const Todos = () => {
 
   const renderData = () => {
     const { TodoReducer } = state;
-    const { loading, items, error } = TodoReducer;
+    const { loading, items, error: getError } = TodoReducer;
     const ItemsLen = items.length;
+    const { error: postError } = PostTodoReducer;
+    const { error: updateError } = UpdateTodoReducer;
     if (loading) {
       return 'Loading data .............';
     }
     if (ItemsLen > 0) {
       return items.map((el) => <Todo key={el.id} todo={el} />);
     }
+    if (postError) {
+      return `${postError}`;
+    }
 
-    return error;
+    if (updateError) {
+      return `${updateError}`;
+    }
+
+    return `${getError}`;
   };
 
   return (

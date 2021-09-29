@@ -1,14 +1,30 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { RegisterUser } from '../../Redux/Actions/TodoActions';
 import styles from './signup.module.css';
 
 const Signup = () => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
+
+  const obj = {
+    email,
+    password,
+    password_confirmation: passwordConfirmation,
+  };
+
   return (
     <div className={styles.formWrapper}>
-      <form className={styles.form}>
+      <form
+        className={styles.form}
+        onSubmit={(e) => {
+          e.preventDefault();
+          dispatch(RegisterUser(obj));
+        }}
+      >
         <div className={styles.header}>
           <h1>Sign Up</h1>
           <p>Hello there! Sign Up and start managing you Todos</p>

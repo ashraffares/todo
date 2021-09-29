@@ -8,6 +8,8 @@ import GetItemsReducer from './GetItemsReducer';
 import PostItemsReducer from './PostItemsReducer';
 import UpdateItemsReducer from './UpdateItemReducer';
 import DeleteItemsReducer from './DeleteItemReducer';
+import RegisterUserReducer from './RegisterUserReducer';
+import LoginUserReducedr from './LoginUserReducer';
 
 const RootReducer = combineReducers({
   TodoReducer,
@@ -19,6 +21,8 @@ const RootReducer = combineReducers({
   PostItemsReducer,
   UpdateItemsReducer,
   DeleteItemsReducer,
+  RegisterUserReducer,
+  LoginUserReducedr,
 });
 
 export default RootReducer;

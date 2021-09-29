@@ -24,11 +24,20 @@ const Todos = () => {
     const { GetItemsReducer } = state;
     const { loading, items, error } = GetItemsReducer;
     const ItemsLen = items.length;
+    const { error: deleteError } = DeleteItemsReducer;
+    const { error: postError } = PostItemsReducer;
+
     if (loading) {
       return 'Loading data .............';
     }
     if (ItemsLen > 0) {
       return items.map((el) => <Item key={el.id} item={el} />);
+    }
+    if (deleteError) {
+      return `${deleteError}`;
+    }
+    if (postError) {
+      return `${postError}`;
     }
 
     return error;

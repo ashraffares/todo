@@ -165,3 +165,39 @@ export const DeleteItem = (todoId, itemId) => async (dispatch) => {
     dispatch({ type: ActionTypes.DELETE_ITEMS_FAILURE, error });
   }
 };
+
+export const RegisterUser = (obj) => async (dispatch) => {
+  dispatch({ type: ActionTypes.REGISTER_USER_LOADING });
+
+  try {
+    const response = await axios({
+      method: 'post',
+      url: 'https://vast-eyrie-23535.herokuapp.com/api/v1/registeration',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data: obj,
+    });
+    dispatch({ type: ActionTypes.REGISTER_USER_SUCCESS, payload: response.data });
+  } catch (error) {
+    dispatch({ type: ActionTypes.REGISTER_USER_FAILURE, error });
+  }
+};
+
+export const LoginUser = (obj) => async (dispatch) => {
+  dispatch({ type: ActionTypes.LOGIN_USER_LOADING });
+
+  try {
+    const response = await axios({
+      method: 'post',
+      url: 'https://vast-eyrie-23535.herokuapp.com/api/v1/login',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data: obj,
+    });
+    dispatch({ type: ActionTypes.LOGIN_USER_SUCCESS, payload: response.data });
+  } catch (error) {
+    dispatch({ type: ActionTypes.LOGIN_USER_FAILURE, error });
+  }
+};
