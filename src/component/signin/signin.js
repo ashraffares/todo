@@ -1,10 +1,14 @@
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { LoginUser } from '../../Redux/Actions/TodoActions';
+import { authenticateUser } from '../../helper/authenticateUser';
 import styles from './signin.module.css';
 
 const SignIn = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,14 +17,28 @@ const SignIn = () => {
     password,
   };
 
+  const TrySignIn = (e) => {
+    e.preventDefault();
+    dispatch(LoginUser(obj)).then(() => {
+      const res = authenticateUser('LOGIN');
+      if (Number.isInteger(res)) {
+        history.push(`/todos/${res}`);
+      } else {
+        const error = document.getElementById('error');
+        error.textContent = res;
+        setTimeout(() => {
+          error.textContent = '';
+        }, 5000);
+      }
+    });
+  };
+
   return (
     <div className={styles.signIn}>
+      <div id="error" />
       <form
         className={styles.form}
-        onSubmit={(e) => {
-          e.preventDefault();
-          dispatch(LoginUser(obj));
-        }}
+        onSubmit={(e) => TrySignIn(e)}
       >
         <div>
           <h1>Sign in</h1>

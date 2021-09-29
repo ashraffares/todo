@@ -12,12 +12,14 @@ const RegisterUserReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
+        error: null,
       };
     case ActionTypes.REGISTER_USER_SUCCESS:
       return {
         ...state,
         token: action.payload,
         loading: false,
+        error: null,
       };
     case ActionTypes.REGISTER_USER_FAILURE:
       return {
