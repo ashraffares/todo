@@ -4,6 +4,7 @@ import { fetchTodoData } from '../../Redux/Actions/TodoActions';
 import Todo from '../../component/todo';
 import Form from '../form';
 import Navbar from '../../component/navbar';
+import { IsSignedIn } from '../../helper/authenticateUser';
 
 const Todos = () => {
   const dispatch = useDispatch();
@@ -11,6 +12,7 @@ const Todos = () => {
   const { DeleteTodoReducer, UpdateTodoReducer, PostTodoReducer } = state;
 
   useEffect(() => {
+    IsSignedIn();
     dispatch(fetchTodoData());
   }, [DeleteTodoReducer, UpdateTodoReducer, PostTodoReducer]);
 

@@ -6,17 +6,20 @@ import store from '../Redux/Store/store';
 export const authenticateUser = (method) => {
   const { LoginUserReducer, RegisterUserReducer } = store.getState();
   let token;
+  let error;
   if (method === 'LOGIN') {
     token = LoginUserReducer.token.token;
+    error = LoginUserReducer.error;
   } else if (method === 'REGISTER') {
     token = RegisterUserReducer.token.token;
+    error = RegisterUserReducer.error;
   }
   if (token) {
     const { user_id } = jwt_decode(token);
     localStorage.setItem('token', token);
     return user_id;
   }
-  return LoginUserReducer.error;
+  return error;
 };
 
 export const IsSignedIn = () => {

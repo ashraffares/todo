@@ -182,7 +182,7 @@ export const RegisterUser = (obj) => async (dispatch) => {
     });
     dispatch({ type: ActionTypes.REGISTER_USER_SUCCESS, payload: response.data });
   } catch (error) {
-    dispatch({ type: ActionTypes.REGISTER_USER_FAILURE, error });
+    dispatch({ type: ActionTypes.REGISTER_USER_FAILURE, error: error.response.data.error });
   }
 };
 

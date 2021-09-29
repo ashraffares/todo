@@ -26,6 +26,7 @@ const RegisterUserReducer = (state = initialState, action) => {
         ...state,
         error: action.error,
         loading: false,
+        token: {},
       };
     default: return state;
   }

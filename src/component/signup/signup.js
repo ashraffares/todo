@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
@@ -26,6 +27,7 @@ const Signup = () => {
         history.push(`/todos/${res}`);
       } else {
         const error = document.getElementById('error');
+        console.log(res);
         error.textContent = res;
         setTimeout(() => {
           error.textContent = '';
