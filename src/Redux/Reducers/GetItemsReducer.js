@@ -16,7 +16,7 @@ const GetItemsReducer = (state = initialState, action) => {
     case ActionTypes.GET_ITEMS_SUCCESS:
       return {
         ...state,
-        items: [...action.payload],
+        items: action.payload,
         loading: false,
       };
     case ActionTypes.GET_ITEMS_FAILURE:
