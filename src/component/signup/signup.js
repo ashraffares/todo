@@ -24,10 +24,9 @@ const Signup = () => {
     dispatch(RegisterUser(obj)).then(() => {
       const res = authenticateUser('REGISTER');
       if (Number.isInteger(res)) {
-        history.push(`/todos/${res}`);
+        history.push(`/user/${res}/todos`);
       } else {
         const error = document.getElementById('error');
-        console.log(res);
         error.textContent = res;
         setTimeout(() => {
           error.textContent = '';

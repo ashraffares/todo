@@ -1,16 +1,20 @@
+/* eslint-disable no-console */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import styles from './form.module.css';
 import { postTodo } from '../../Redux/Actions/TodoActions';
 
 const Form = () => {
+  const { id } = useParams();
+  console.log(id);
   const dispatch = useDispatch();
   const [Title, SetTitle] = useState('');
   const [createdBy, SetcreatedBy] = useState('');
   const obj = {
     title: Title,
     created_by: createdBy,
-    user_id: 1,
+    user_id: id,
   };
 
   return (

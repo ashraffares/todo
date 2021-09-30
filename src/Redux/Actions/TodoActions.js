@@ -1,11 +1,11 @@
+/* eslint-disable no-console */
 import axios from 'axios';
 import ActionTypes from './ActionTypes';
 
-const token = JSON.stringify(localStorage.getItem('token'));
+const token = localStorage.getItem('token');
 
 export const fetchTodoData = () => async (dispatch) => {
   dispatch({ type: ActionTypes.FETCH_TODO_LOADING });
-
   try {
     const response = await axios.get('https://vast-eyrie-23535.herokuapp.com/api/v1/todos',
       {
@@ -29,7 +29,7 @@ export const postTodo = (obj) => async (dispatch) => {
       url: 'https://vast-eyrie-23535.herokuapp.com/api/v1/todos',
       headers: {
         'Content-Type': 'application/json',
-        token: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.DiPWrOKsx3sPeVClrm_j07XNdSYHgBa3Qctosdxax3w',
+        token,
       },
       data: obj,
     });
@@ -48,7 +48,7 @@ export const DeleteTodo = (id) => async (dispatch) => {
       url: `https://vast-eyrie-23535.herokuapp.com/api/v1/todos/${id}`,
       headers: {
         'Content-Type': 'application/json',
-        token: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.DiPWrOKsx3sPeVClrm_j07XNdSYHgBa3Qctosdxax3w',
+        token,
       },
     });
     dispatch({ type: ActionTypes.DELETE_TODO_SUCCESS, payload: response.data });
@@ -66,7 +66,7 @@ export const UpdateTodo = (id, obj) => async (dispatch) => {
       url: `https://vast-eyrie-23535.herokuapp.com/api/v1/todos/${id}`,
       headers: {
         'Content-Type': 'application/json',
-        token: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.DiPWrOKsx3sPeVClrm_j07XNdSYHgBa3Qctosdxax3w',
+        token,
       },
       data: obj,
     });
@@ -85,7 +85,7 @@ export const GetTodo = (id) => async (dispatch) => {
       url: `https://vast-eyrie-23535.herokuapp.com/api/v1/todos/${id}`,
       headers: {
         'Content-Type': 'application/json',
-        token: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.DiPWrOKsx3sPeVClrm_j07XNdSYHgBa3Qctosdxax3w',
+        token,
       },
     });
     dispatch({ type: ActionTypes.GET_TODO_SUCCESS, payload: response.data });
@@ -103,7 +103,7 @@ export const GetItems = (id) => async (dispatch) => {
       url: `https://vast-eyrie-23535.herokuapp.com/api/v1/todos/${id}/items`,
       headers: {
         'Content-Type': 'application/json',
-        token: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.DiPWrOKsx3sPeVClrm_j07XNdSYHgBa3Qctosdxax3w',
+        token,
       },
     });
     dispatch({ type: ActionTypes.GET_ITEMS_SUCCESS, payload: response.data });
@@ -121,7 +121,7 @@ export const PostItems = (id, obj) => async (dispatch) => {
       url: `https://vast-eyrie-23535.herokuapp.com/api/v1/todos/${id}/items`,
       headers: {
         'Content-Type': 'application/json',
-        token: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.DiPWrOKsx3sPeVClrm_j07XNdSYHgBa3Qctosdxax3w',
+        token,
       },
       data: obj,
     });
@@ -140,7 +140,7 @@ export const UpdateItem = (todoId, itemId, obj) => async (dispatch) => {
       url: `https://vast-eyrie-23535.herokuapp.com/api/v1/todos/${todoId}/items/${itemId}`,
       headers: {
         'Content-Type': 'application/json',
-        token: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.DiPWrOKsx3sPeVClrm_j07XNdSYHgBa3Qctosdxax3w',
+        token,
       },
       data: obj,
     });
@@ -159,7 +159,7 @@ export const DeleteItem = (todoId, itemId) => async (dispatch) => {
       url: `https://vast-eyrie-23535.herokuapp.com/api/v1/todos/${todoId}/items/${itemId}`,
       headers: {
         'Content-Type': 'application/json',
-        token: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.DiPWrOKsx3sPeVClrm_j07XNdSYHgBa3Qctosdxax3w',
+        token,
       },
     });
     dispatch({ type: ActionTypes.DELETE_ITEMS_SUCCESS, payload: response.data });

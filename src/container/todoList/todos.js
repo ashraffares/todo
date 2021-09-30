@@ -9,12 +9,15 @@ import { IsSignedIn } from '../../helper/authenticateUser';
 const Todos = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
-  const { DeleteTodoReducer, UpdateTodoReducer, PostTodoReducer } = state;
+  const {
+    DeleteTodoReducer, UpdateTodoReducer, PostTodoReducer, LoginUserReducer, RegisterUserReducer,
+  } = state;
 
   useEffect(() => {
     IsSignedIn();
     dispatch(fetchTodoData());
-  }, [DeleteTodoReducer, UpdateTodoReducer, PostTodoReducer]);
+  }, [DeleteTodoReducer,
+    UpdateTodoReducer, PostTodoReducer, LoginUserReducer, RegisterUserReducer]);
 
   const renderData = () => {
     const { TodoReducer } = state;
@@ -25,7 +28,7 @@ const Todos = () => {
     if (loading) {
       return 'Loading data .............';
     }
-    if (ItemsLen > 0) {
+    if (ItemsLen >= 0) {
       return items.map((el) => <Todo key={el.id} todo={el} />);
     }
     if (postError) {

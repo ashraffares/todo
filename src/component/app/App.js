@@ -10,8 +10,8 @@ function App() {
   return (
     <div className={styles.App}>
       <Switch>
-        <Route path="/todos/:id" exact component={Todos} />
-        <Route path="/todo/:id/items" exact component={Items} />
+        <Route path="/user/:id/todos/" exact component={Todos} />
+        <Route path="/todo/:id/items/" exact component={Items} />
         <Route path="/" exact component={SignIn} />
         <Route path="/sign_up" exact component={SignUp} />
         <Redirect to="/" />

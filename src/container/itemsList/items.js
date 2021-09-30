@@ -10,7 +10,6 @@ import styles from './items.module.css';
 
 const Todos = () => {
   const history = useHistory();
-  console.log(history);
   const res = useParams();
   const dispatch = useDispatch();
   const state = useSelector((state) => state);

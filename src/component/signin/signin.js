@@ -22,7 +22,7 @@ const SignIn = () => {
     dispatch(LoginUser(obj)).then(() => {
       const res = authenticateUser('LOGIN');
       if (Number.isInteger(res)) {
-        history.push(`/todos/${res}`);
+        history.push(`/user/${res}/todos`);
       } else {
         const error = document.getElementById('error');
         error.textContent = res;
