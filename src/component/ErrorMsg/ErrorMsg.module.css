@@ -1,0 +1,22 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 90% 10%;
+  text-align: left;
+  background-color: #f8d7da;
+  border: 1px solid #721c24;
+  margin-bottom: 5px;
+}
+
+.msg {
+  color: #721c24;
+  padding-left: 5px;
+}
+
+.btn {
+  color: #721c24;
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
