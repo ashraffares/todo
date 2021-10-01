@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable camelcase */
 import jwt_decode from 'jwt-decode';
 import store from '../Redux/Store/store';

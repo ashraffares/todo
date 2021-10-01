@@ -4,13 +4,11 @@ import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { RegisterUser } from '../../Redux/Actions/TodoActions';
 import { authenticateUser } from '../../helper/authenticateUser';
-import ErrorMsg from '../ErrorMsg';
 import styles from './signup.module.css';
 
 const Signup = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
@@ -28,18 +26,29 @@ const Signup = () => {
       if (Number.isInteger(res)) {
         history.push(`/user/${res}/todos`);
       } else {
-        setErrors(res);
+        const errorsContainer = document.getElementById('error');
+        const btn = document.createElement('button');
+        btn.innerHTML = 'X';
+        btn.classList.add(`${styles.errorBtn}`);
+        btn.addEventListener('click', (e) => {
+          e.target.parentElement.textContent = '';
+        });
+        errorsContainer.append(btn);
+        res.map((error) => {
+          const div = document.createElement('div');
+          div.textContent = error;
+          div.classList.add(`${styles.error}`);
+          errorsContainer.append(div);
+          return true;
+        });
       }
+      return true;
     });
   };
 
   return (
     <div className={styles.formWrapper}>
-      <div id="error" className={styles.errorsConatiner}>
-        {
-          errors.map((error) => <ErrorMsg key={error} msg={error} />)
-        }
-      </div>
+      <div id="error" className={styles.errorsConatiner} />
       <form
         className={styles.form}
         onSubmit={(e) => TrySignUp(e)}

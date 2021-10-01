@@ -24,18 +24,29 @@ const SignIn = () => {
       if (Number.isInteger(res)) {
         history.push(`/user/${res}/todos`);
       } else {
-        const error = document.getElementById('error');
-        error.textContent = res;
-        setTimeout(() => {
-          error.textContent = '';
-        }, 5000);
+        const errorsContainer = document.getElementById('error');
+        const btn = document.createElement('button');
+        btn.innerHTML = 'X';
+        btn.classList.add(`${styles.errorBtn}`);
+        btn.addEventListener('click', (e) => {
+          e.target.parentElement.textContent = '';
+        });
+        errorsContainer.append(btn);
+        res.map((error) => {
+          const div = document.createElement('div');
+          div.textContent = error;
+          div.classList.add(`${styles.error}`);
+          errorsContainer.append(div);
+          return true;
+        });
       }
+      return true;
     });
   };
 
   return (
     <div className={styles.signIn}>
-      <div id="error" />
+      <div id="error" className={styles.errorsConatiner} />
       <form
         className={styles.form}
         onSubmit={(e) => TrySignIn(e)}
