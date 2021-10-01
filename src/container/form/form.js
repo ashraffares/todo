@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -7,7 +6,6 @@ import { postTodo } from '../../Redux/Actions/TodoActions';
 
 const Form = () => {
   const { id } = useParams();
-  console.log(id);
   const dispatch = useDispatch();
   const [Title, SetTitle] = useState('');
   const [createdBy, SetcreatedBy] = useState('');

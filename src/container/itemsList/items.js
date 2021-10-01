@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
-import Item from '../../component/item';
+import Item from '../item';
 import { GetItems } from '../../Redux/Actions/TodoActions';
 import ItemForm from '../itemform';
 import Navbar from '../../component/navbar';

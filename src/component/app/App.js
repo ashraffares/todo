@@ -2,8 +2,8 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Todos from '../../container/todoList/todos';
 import Items from '../../container/itemsList/items';
-import SignIn from '../signin';
-import SignUp from '../signup';
+import SignIn from '../../container/signin';
+import SignUp from '../../container/signup';
 import styles from './App.module.css';
 
 function App() {

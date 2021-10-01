@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTodoData } from '../../Redux/Actions/TodoActions';
-import Todo from '../../component/todo';
+import Todo from '../todo';
 import Form from '../form';
 import Navbar from '../../component/navbar';
 import { IsSignedIn } from '../../helper/authenticateUser';
