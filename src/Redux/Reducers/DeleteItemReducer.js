@@ -1,25 +1,25 @@
 import ActionTypes from '../Actions/ActionTypes';
 
-const initialStatePost = {
-  message: null,
+const initialState = {
+  message: {},
   loading: false,
   error: null,
 };
 
-const UpdateTodoReducer = (state = initialStatePost, action) => {
+const DeleteItemsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionTypes.UPDATE_TODO_LOADING:
+    case ActionTypes.DELETE_ITEMS_LOADING:
       return {
         ...state,
         loading: true,
       };
-    case ActionTypes.UPDATE_TODO_SUCCESS:
+    case ActionTypes.DELETE_ITEMS_SUCCESS:
       return {
         ...state,
         message: action.payload,
         loading: false,
       };
-    case ActionTypes.UPDATE_TODO_FAILURE:
+    case ActionTypes.DELETE_ITEMS_FAILURE:
       return {
         ...state,
         error: action.error,
@@ -29,4 +29,4 @@ const UpdateTodoReducer = (state = initialStatePost, action) => {
   }
 };
 
-export default UpdateTodoReducer;
+export default DeleteItemsReducer;

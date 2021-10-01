@@ -1,0 +1,20 @@
+.main {
+  width: 80vw;
+  margin: auto;
+}
+
+.btn {
+  border: none;
+  color: dodgerblue;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.btn:hover {
+  border: 1px solid #fff;
+  background-color: dodgerblue;
+  color: #fff;
+  border-radius: 25px;
+}

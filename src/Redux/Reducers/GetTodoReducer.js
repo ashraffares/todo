@@ -16,13 +16,14 @@ const GetTodoReducer = (state = initialState, action) => {
     case ActionTypes.GET_TODO_SUCCESS:
       return {
         ...state,
-        item: action.payload,
-        loading: true,
+        item: [...action.payload],
+        loading: false,
       };
     case ActionTypes.GET_TODO_FAILURE:
       return {
         ...state,
         error: action.error,
+        loading: false,
       };
     default: return state;
   }

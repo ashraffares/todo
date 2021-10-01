@@ -1,0 +1,91 @@
+.signIn {
+  background-image: url("./bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.form {
+  text-align: center;
+  width: 40%;
+  margin: auto;
+}
+
+.input {
+  width: 98%;
+  padding: 10px 0;
+  padding-left: 5px;
+  margin: 12px 0;
+  border-radius: 20px;
+  border: 1px solid #aaa;
+  outline: none;
+}
+
+.orange {
+  border: 2px solid #ff6026;
+}
+
+.btn {
+  padding: 10px 35px;
+  background-color: #ff6026;
+  color: #fff;
+  font-weight: bolder;
+  border: none;
+  border-radius: 20px;
+}
+
+.linkcon {
+  margin: 40px 0;
+}
+
+.link {
+  text-decoration: none;
+  border: 2px solid #aaa;
+  color: #000;
+  background-color: #fff;
+  padding: 10px 15px;
+  border-radius: 25px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.link:hover {
+  background-color: #000;
+  color: #fff;
+  border: 2px solid #aaa;
+}
+
+.errorsConatiner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 99 !important;
+  color: #721c24;
+  line-height: 3rem;
+  opacity: 0.8;
+}
+
+.error {
+  border: 1px solid #721c24;
+  background-color: #f8d7da;
+  margin-bottom: 2px;
+}
+
+.errorBtn {
+  width: fit-content;
+  float: right;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: bold;
+  color: #721c24;
+  cursor: pointer;
+}

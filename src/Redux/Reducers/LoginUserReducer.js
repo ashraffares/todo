@@ -1,32 +1,35 @@
 import ActionTypes from '../Actions/ActionTypes';
 
-const initialStatePost = {
-  message: null,
+const initialState = {
+  token: {},
   loading: false,
   error: null,
 };
 
-const UpdateTodoReducer = (state = initialStatePost, action) => {
+const LoginUserReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionTypes.UPDATE_TODO_LOADING:
+    case ActionTypes.LOGIN_USER_LOADING:
       return {
         ...state,
         loading: true,
+        error: null,
       };
-    case ActionTypes.UPDATE_TODO_SUCCESS:
+    case ActionTypes.LOGIN_USER_SUCCESS:
       return {
         ...state,
-        message: action.payload,
+        token: action.payload,
         loading: false,
+        error: null,
       };
-    case ActionTypes.UPDATE_TODO_FAILURE:
+    case ActionTypes.LOGIN_USER_FAILURE:
       return {
         ...state,
         error: action.error,
         loading: false,
+        token: {},
       };
     default: return state;
   }
 };
 
-export default UpdateTodoReducer;
+export default LoginUserReducer;
