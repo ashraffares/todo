@@ -12,12 +12,13 @@ const TodoReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         items: action.payload,
-        loading: true,
+        loading: false,
       };
     case ActionTypes.FETCH_TODO_FAILURE:
       return {
         ...state,
         error: action.error,
+        loading: false,
       };
     default: return state;
   }
